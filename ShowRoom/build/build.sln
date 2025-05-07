@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "..\source\Game\Game.vcxproj", "{E230F83C-C381-40C9-A5EE-C94E29534974}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC} = {B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library", "..\source\Library\Library.vcxproj", "{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Debug|x64.ActiveCfg = Debug|x64
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Debug|x64.Build.0 = Debug|x64
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Debug|x86.ActiveCfg = Debug|Win32
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Debug|x86.Build.0 = Debug|Win32
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Release|x64.ActiveCfg = Release|x64
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Release|x64.Build.0 = Release|x64
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Release|x86.ActiveCfg = Release|Win32
+		{E230F83C-C381-40C9-A5EE-C94E29534974}.Release|x86.Build.0 = Release|Win32
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Debug|x64.ActiveCfg = Debug|x64
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Debug|x64.Build.0 = Debug|x64
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Debug|x86.ActiveCfg = Debug|Win32
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Debug|x86.Build.0 = Debug|Win32
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Release|x64.ActiveCfg = Release|x64
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Release|x64.Build.0 = Release|x64
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Release|x86.ActiveCfg = Release|Win32
+		{B68D4A76-32C8-40CF-AE4F-18B1192DCCEC}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
