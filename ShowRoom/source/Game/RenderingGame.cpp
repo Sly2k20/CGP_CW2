@@ -2,14 +2,25 @@
 #include "GameException.h"
 #include "FirstPersonCamera.h"
 #include "TriangleDemo.h"
+#include "Keyboard.h"
+#include "Mouse.h"
 
 namespace Rendering
 {;
 
-	const XMFLOAT4 RenderingGame::BackgroundColor = { 0.5f, 0.5f, 0.5f, 1.0f };
+	const XMFLOAT4 RenderingGame::BackgroundColor = { 0.0f, 0.0f, 0.2f, 1.0f };
 
     RenderingGame::RenderingGame(HINSTANCE instance, const std::wstring& windowClass, const std::wstring& windowTitle, int showCommand)
-        :  Game(instance, windowClass, windowTitle, showCommand),
+        : Game(instance, windowClass, windowTitle, showCommand),
+
+        //tutorial 4 (SLY)
+        mDirectInput(nullptr),
+        mKeyboard(nullptr),
+        mMouse(nullptr),
+
+
+
+
         mDemo(nullptr)
     {
         mDepthStencilBufferEnabled = true;
@@ -23,6 +34,24 @@ namespace Rendering
     void RenderingGame::Initialize()
     {
 		
+        //tutorial 4 (SLY)
+
+        if (FAILED(DirectInput8Create(mInstance, DIRECTINPUT_VERSION,
+            IID_IDirectInput8, (LPVOID*)&mDirectInput, nullptr)))
+        {
+            throw GameException("DirectInput8Create() failed");
+        }
+        mKeyboard = new Keyboard(*this, mDirectInput);
+        mComponents.push_back(mKeyboard);
+        mServices.AddService(Keyboard::TypeIdClass(), mKeyboard);
+        mMouse = new Mouse(*this, mDirectInput);
+        mComponents.push_back(mMouse);
+        mServices.AddService(Mouse::TypeIdClass(), mMouse);
+
+
+
+        //camera control
+
         mCamera = new FirstPersonCamera(*this);
         mComponents.push_back(mCamera);
         mServices.AddService(Camera::TypeIdClass(), mCamera);
@@ -32,7 +61,10 @@ namespace Rendering
 
         Game::Initialize();
 
+
 		mCamera->SetPosition(0.0f, 0.0f, 5.0f);
+
+
     }
 
     void RenderingGame::Shutdown()
@@ -44,6 +76,12 @@ namespace Rendering
 
     void RenderingGame::Update(const GameTime &gameTime)
     {
+
+        //add this for the camera
+        if (mKeyboard->WasKeyPressedThisFrame(DIK_ESCAPE))
+        {
+            Exit();
+        }
 
         Game::Update(gameTime);
     }

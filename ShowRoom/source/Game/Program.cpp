@@ -19,6 +19,15 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE previousInstance, LPSTR command
 
     std::unique_ptr<RenderingGame> game(new RenderingGame(instance, L"RenderingClass", L"Real-Time 3D Rendering", showCommand));
 
+    //window
+
+    HWND hwnd = game->WindowHandle();
+
+    // Resize the window to 1280x720 (SLY)
+    SetWindowPos(hwnd, HWND_TOP, 0, 0, 1280, 720, SWP_NOMOVE);
+
+
+
     try
     {
         game->Run();
