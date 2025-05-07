@@ -4,6 +4,7 @@
 #include "TriangleDemo.h"
 #include "Keyboard.h"
 #include "Mouse.h"
+#include "ModelFromFile.h"
 
 namespace Rendering
 {;
@@ -17,6 +18,7 @@ namespace Rendering
         mDirectInput(nullptr),
         mKeyboard(nullptr),
         mMouse(nullptr),
+        
 
 
 
@@ -48,7 +50,7 @@ namespace Rendering
         mComponents.push_back(mMouse);
         mServices.AddService(Mouse::TypeIdClass(), mMouse);
 
-
+       
 
         //camera control
 
@@ -59,10 +61,19 @@ namespace Rendering
         mDemo = new TriangleDemo(*this, *mCamera);
         mComponents.push_back(mDemo);
 
+        // tutorail 5 (SLY)
+        mModel = new ModelFromFile(*this, *mCamera, "Content\\Models\\bench.3ds");
+        mModel->SetPosition(-1.57f, -0.0f, -0.0f, 0.005f, 0.0f, 0.6f, 0.0f);
+        mComponents.push_back(mModel);
+
         Game::Initialize();
 
 
+
+
 		mCamera->SetPosition(0.0f, 0.0f, 5.0f);
+
+      
 
 
     }
@@ -74,6 +85,7 @@ namespace Rendering
         DeleteObject(mKeyboard);
         DeleteObject(mMouse);
         DeleteObject(mDirectInput);
+        DeleteObject(mModel);
         Game::Shutdown();
     }
 

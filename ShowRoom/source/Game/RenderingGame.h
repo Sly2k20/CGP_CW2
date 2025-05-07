@@ -13,11 +13,17 @@ namespace Library
     //tutorial 4 (SLY)
     class Keyboard;
     class Mouse;
+
+    
+
 }
 
 namespace Rendering
 {
     class TriangleDemo;
+
+    // tutorial 5 (SLY)
+    class ModelFromFile;
 
     class RenderingGame : public Game
     {
@@ -41,5 +47,8 @@ namespace Rendering
         LPDIRECTINPUT8 mDirectInput;
         Keyboard* mKeyboard;
         Mouse* mMouse;
+
+        // tutorial 5 (SLY)
+        ModelFromFile* mModel;
     };
 }
