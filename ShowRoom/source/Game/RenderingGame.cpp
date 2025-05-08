@@ -70,7 +70,6 @@ namespace Rendering
 
 
 
-
 		mCamera->SetPosition(0.0f, 0.0f, 5.0f);
 
       
